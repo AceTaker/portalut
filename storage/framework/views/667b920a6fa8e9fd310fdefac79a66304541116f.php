@@ -1,9 +1,9 @@
   <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <img src="<?php echo e(asset('assets/img//logo/logo-crop.png')); ?>" alt="logo" width="60" class="mb-5 mt-2 mr-2">
+            <img src="<?php echo e(asset('assets-real/img//logo.png')); ?>" alt="logo" width="100" class="mb-5 mt-2 mr-2">
         </div>
-        <div class="text-center">Portal Universitas Terbuka</div>
+        
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="http://portalut.test/">SI</a>
         </div>
