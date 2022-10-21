@@ -17,16 +17,15 @@
                 </div>
             @endif
             </div>
-            <div class="col-4">
-            <a type="submit" href="{{ url('kelas/'. $item->id . '/add') }}" class="btn btn-primary pull-right">Tambah</a>
-            <div class="clearfix"></div>
-            </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header card-header-primary">
                 <h4 class="card-title ">Data Mahasiswa Kelas {{$item->nama}}</h4>
+                <div class="ml-auto">
+               <a type="submit" href="{{ url('kelas/'. $item->id . '/add') }}"  class="btn btn-primary"v>Tambah</a>
+                   </div>
               </div>
               <div class="card-body">
                 <div class="row">

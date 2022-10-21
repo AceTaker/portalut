@@ -29,6 +29,7 @@ class HomeController extends Controller
             'mahasiswa' => $mahasiswa,
             'dosen' => $dosen,
             'matkul' => $matkul,
+            'header' => 'Dashboard',
         ]);
     }
 

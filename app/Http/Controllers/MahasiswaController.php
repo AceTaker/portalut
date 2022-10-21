@@ -25,7 +25,8 @@ class MahasiswaController extends Controller
         // ->format('d-m-Y');//$items[0]->tanggal_lahir;
         // dd($tgl);
         return view('pages.mahasiswa.index')->with([
-            'items' => $items
+            'items' => $items,
+            'header' => 'Mahasiswa',
         ]);
     }
 

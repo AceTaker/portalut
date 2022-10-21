@@ -3,6 +3,7 @@
 @section('content')    
     <div class="container-fluid">
         <div class="row">
+          
             <div class="col-8">
             @if (session('status'))
                 <div class="alert alert-success">
@@ -10,9 +11,7 @@
                 </div>
             @endif
             </div>
-            <div class="col-4">
-            <a type="submit" href="{{ route('mahasiswa.create') }}" class="btn btn-primary pull-right">Tambah</a>
-            <div class="clearfix"></div>
+            
             </div>
         </div>
           <div class="row">
@@ -20,6 +19,9 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">Data Mahasiswa</h4>
+                   <div class="ml-auto">
+               <a type="submit" href="{{ route('mahasiswa.create') }}"  class="btn btn-primary"v>Tambah</a>
+                   </div>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -71,9 +73,10 @@
                               class="btn btn-info btn-sm">
                               <i class="fa fa-eye"></i>
                             </a>
+                            
                             <a href="{{ route('mahasiswa.edit', $item->id) }}" class="btn btn-primary btn-sm">
-                                <i class="fa fa-pencil"></i>
-                            </a>
+                              <i class="fas fa-edit"></i>
+                          </a>
                             <form action="{{ route('mahasiswa.destroy', $item->id) }}" 
                                     method="post" 
                                     class="d-inline">

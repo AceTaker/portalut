@@ -36,16 +36,15 @@
                 </div>
             @endif
             </div>
-            <div class="col-4">
-            <a type="submit" href="{{ url('schedule/'. $item->id . '/create') }}" class="btn btn-primary pull-right">Tambah</a>
-            <div class="clearfix"></div>
-            </div>
         </div>
           <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Data Matakuliah</h4>
+                  <h4 class="card-title ">Data Mata Kuliah</h4>
+                  <div class="ml-auto">
+               <a type="submit" href="{{ url('schedule/'. $item->id . '/create') }}"  class="btn btn-primary"v>Tambah</a>
+                   </div>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -119,18 +118,21 @@
                           {{ $item->ruangan->ruangan }}
                           </td>
                           <td>
-                            <a href="{{ route('schedule.edit', $item->id) }}" class="btn btn-primary btn-sm">
-                                <i class="fa fa-pencil"></i>
+                            <div class="buttons">
+                            <a href="{{ route('schedule.edit', $item->id) }}" class="btn btn-primary btn-action mr-1">
+                                <i class="fas fa-edit"></i>
                             </a>
                             <form action="{{ route('schedule.destroy', $item->id) }}" 
                                     method="post" 
                                     class="d-inline">
                                 @csrf
                                 @method('delete')
-                                <button class="btn btn-danger btn-sm">
-                                <i class="fa fa-trash"></i>
+                                <button class="btn btn-danger btn-action trigger--fire-modal-1">
+                                <i class="fas fa-trash"></i>
                                 </button>
+                              
                             </form>
+                            </div>
                           </td>
                         </tr>
                         @empty

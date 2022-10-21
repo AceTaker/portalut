@@ -1,48 +1,41 @@
-<div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          SI Akademik
-        </a></div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="{{ route('dashboard') }}">
-              <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="{{ route('mahasiswa.index') }}">
-              <i class="material-icons">person</i>
-              <p>Mahasiswa</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-          <li class="nav-item ">
-            <a class="nav-link" href="{{ route('schedule.index') }}">
-              <i class="material-icons">library_books</i>
-              <p>Jadwal</p>
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Master Data
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ route('dosen.index') }}">Dosen</a>
-              <a class="dropdown-item" href="{{ route('fakultas.index') }}">Fakultas</a>
-              <a class="dropdown-item" href="{{ route('gedung.index') }}">Gedung</a>
-              <a class="dropdown-item" href="{{ route('kelas.index') }}">Kelas</a>
-              <a class="dropdown-item" href="{{ route('matkul.index') }}">Matakuliah</a>
-              <a class="dropdown-item" href="{{ route('prodi.index') }}">Program Studi</a>
-              <a class="dropdown-item" href="{{ route('ruangan.index') }}">Ruangan</a>
-              <a class="dropdown-item" href="{{ route('ta.index') }}">Tahun Akademik</a>
-            </div>
-          </li>
+  <div class="main-sidebar sidebar-style-2">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <img src="{{ asset('assets/img//logo/logo-crop.png') }}" alt="logo" width="60" class="mb-5 mt-2 mr-2">
+        </div>
+        <div class="text-center">Portal Universitas Terbuka</div>
+        <div class="sidebar-brand sidebar-brand-sm">
+            <a href="http://portalut.test/">SI</a>
+        </div>
+        <ul class="sidebar-menu">
+                <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
+                    <a href="{{ route('dashboard') }}" class="nav-link ">
+                        <i class="fas fa-home"></i><span>Beranda</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ Request::is('mahasiswa*') ? 'active' : '' }}">
+                    <a href="{{ route('mahasiswa.index') }}" class="nav-link ">
+                        <i class="fas fa-user"></i></i><span>Mahasiswa</span>
+                    </a>
+                </li>
+                 <li class="nav-item {{ Request::is('/schedule') ? 'active' : '' }}">
+                    <a href="{{ route('schedule.index') }}" class="nav-link ">
+                        <i class="fas fa-book"></i></i><span>Jadwal</span>
+                    </a>
+                  </li>
+                <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Data Master</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="{{ route('dosen.index') }}">Dosen</a></li>
+                <li><a class="nav-link" href="{{ route('fakultas.index') }}">Fakultas</a></li>
+                <li><a class="nav-link" href="{{ route('gedung.index') }}">Gedung</a></li>
+                <li><a class="nav-link" href="{{ route('kelas.index') }}">Kelas</a></li>
+                <li><a class="nav-link" href="{{ route('matkul.index') }}">Mata Kuliah</a></li>
+                <li><a class="nav-link" href="{{ route('prodi.index') }}">Program Studi</a></li>
+                <li><a class="nav-link" href="{{ route('ruangan.index') }}">Ruangan</a></li>
+                <li><a class="nav-link" href="{{ route('ta.index') }}">Tahun Akademik</a></li>
+              </ul>
+            </li>
         </ul>
-      </div>
+      </aside>
     </div>

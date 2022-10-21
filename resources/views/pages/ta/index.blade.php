@@ -10,16 +10,15 @@
                 </div>
             @endif
             </div>
-            <div class="col-4">
-            <a type="submit" href="{{ route('ta.create') }}" class="btn btn-primary pull-right">Tambah</a>
-            <div class="clearfix"></div>
-            </div>
         </div>
           <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">Data Tahun Akademik</h4>
+                  <div class="ml-auto">
+               <a type="submit" href="{{ route('ta.create') }}"  class="btn btn-primary"v>Tambah</a>
+                   </div>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -55,9 +54,9 @@
                           </td>
                           <td>
                           @if ($item->status == 0)
-                              <button class="btn btn-warning btn-sm">Tidak Aktif</button>
+                              <div class="badge badge-pill badge-danger mb-1">Tidak Aktif</div>
                           @else
-                              <button class="btn btn-success btn-sm">Aktif</button>
+                              <div class="badge badge-pill badge-success mb-1">Aktif</div>
                           @endif
                           </td>
                           <td>
@@ -75,7 +74,7 @@
                               
                           @endif
                             <a href="{{ route('ta.edit', $item->id) }}" class="btn btn-primary btn-sm">
-                                <i class="fa fa-pencil"></i>
+                                <i class="fas fa-edit"></i>
                             </a>
                             <form action="{{ route('ta.destroy', $item->id) }}" 
                                     method="post" 

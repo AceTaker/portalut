@@ -10,16 +10,15 @@
                 </div>
             @endif
             </div>
-            <div class="col-4">
-            <a type="submit" href="{{ route('gedung.create') }}" class="btn btn-primary pull-right">Tambah</a>
-            <div class="clearfix"></div>
-            </div>
         </div>
           <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">Data Gedung</h4>
+                   <div class="ml-auto">
+               <a type="submit" href="{{ route('gedung.create') }}"  class="btn btn-primary"v>Tambah</a>
+                   </div>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -46,7 +45,7 @@
                           </td>
                           <td>
                             <a href="{{ route('gedung.edit', $item->id) }}" class="btn btn-primary btn-sm">
-                                <i class="fa fa-pencil"></i>
+                                <i class="fas fa-edit"></i>
                             </a>
                             <form action="{{ route('gedung.destroy', $item->id) }}" 
                                     method="post" 

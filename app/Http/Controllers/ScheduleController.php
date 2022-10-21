@@ -27,7 +27,8 @@ class ScheduleController extends Controller
 
         return view('pages.schedule.index')->with([
             'items' => $items,
-            'ta' => $ta
+            'ta' => $ta,
+            'header' => 'Jadwal',
         ]);
     }
 
