@@ -50,8 +50,8 @@
                         <img src="{{ asset('assets-real/img/logo.png') }}" alt="" width="150" height="150">
                     </div>
                     <div class="col-md-8 text-center align-self-center">
-                        <h4>Universitas Perdana Sumatera Utara</h4>
-                        <small>Jl. Di. Panjaitan No.10 Kota Tanjungbalai, Telp: 0623-41079, Fax: 0623-42366</small>
+                        <h4>Universitas Terbuka</h4>
+                        <small>Jl. Sultan Adam No.128, Surgi Mufti, Kec. Banjarmasin Utara, Kota Banjarmasin, Kalimantan Selatan 70122, Telp: 0511-11111, Fax: 11111-111</small>
                     </div>
                     <div class="col-md-1">
                     </div>
@@ -212,7 +212,7 @@
                     <img src="/image/mahasiswa/{{ $mahasiswa->photo }}" class="img-thumbnail" alt="...">
                     </div>
                     <div class="col-md-2 text-center">
-                        <p>Tanjungbalai, </p>
+                        <p>Banjarmasin, </p>
                         <br><br>
                         <p class="font-weight-bold"><u>{{$mahasiswa->nama}}</u></p>
                         <p class="jabatan">Mahasiswa</p>
