@@ -1,4 +1,3 @@
 @include('dosen.includes.header')
-@include('dosen.includes.navbar')
-@yield('content')
+@include('dosen.includes.sidebar')
 @include('dosen.includes.script')

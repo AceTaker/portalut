@@ -3,10 +3,10 @@
 @section('content')
 <!-- profile -->
 <div id="profile">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 offset-md-1">
-                <div class="card" style="width: 18rem;">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-4">
+              <div class="card" style="width: 18rem;">
                     <img src="/image/dosen/{{ $item->photo }}" class="card-img-top" alt="...">
                     <div class="card-body text-center">
                         <h5 class="card-title">{{$item->nama}}</h5>
