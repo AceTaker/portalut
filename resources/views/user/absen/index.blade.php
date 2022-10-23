@@ -1,14 +1,14 @@
 @extends('user.layouts.layout')
 
 @section('content')
-<div id="absen">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
+<div id="absen" class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-primary">
         <h4 class="text-success">Absensi Tahun Akademik: {{$ta->tahun_akademik}}/{{$ta->semester}}</h4>
       </div>
-    </div>
-    <div class="row">
+    <div class="card-body">
       <div class="col-12">
         <table class="tg table">
           <thead>
@@ -78,4 +78,5 @@
       </div>
   </div>
 </div>
+  </div>
 @endsection

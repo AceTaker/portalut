@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="mahasiswa">
-  <div class="container">
+  <div class="container-fluid">
     @if ($mahasiswa->id_kelas === null)
       <td>Tidak dapat mengisi KRS, karena kelas anda belum ditentukan</td>
     @else
@@ -12,9 +12,6 @@
       </div>
     </div>
     <div class="row bio">
-      <div class="col-md-2">
-        <img src="/image/mahasiswa/{{ $mahasiswa->photo }}" class="photo" alt="">
-      </div>
       <div class="col-md-5">
         <table class="table">
           <tbody>
@@ -41,6 +38,7 @@
           </tbody>
         </table>
       </div>
+
       <div class="col-md-5">
         <table class="table">
           <tbody>

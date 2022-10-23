@@ -18,7 +18,7 @@
                         <i class="fas fa-user"></i></i><span>Mahasiswa</span>
                     </a>
                 </li>
-                 <li class="nav-item {{ Request::is('/schedule') ? 'active' : '' }}">
+                 <li class="nav-item {{ Request::is('schedule*') ? 'active' : '' }}">
                     <a href="{{ route('schedule.index') }}" class="nav-link ">
                         <i class="fas fa-book"></i></i><span>Jadwal</span>
                     </a>
