@@ -15,7 +15,7 @@ class MahasiswasSeeder extends Seeder
     {
         DB::table('mahasiswas')->insert([
             'id' => 1,
-            'nim' => 19110163,
+            'nim' => 1911016310022,
             'nama' => 'Melky Hermansyah',
             'tempat_lahir' => 'Barito Kuala',
             'tanggal_lahir' => date('Y-m-d'),

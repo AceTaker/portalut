@@ -25,8 +25,8 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert([
             'id' => 2,
             'name' => 'Melky Hermansyah',
-            'username' => '19110163',
-            'password' => Hash::make('11111111'),
+            'username' => '1911016310022',
+            'password' => Hash::make('password'),
             'role' => 'Mahasiswa',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
