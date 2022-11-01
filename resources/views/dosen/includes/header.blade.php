@@ -13,8 +13,9 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
 <!DOCTYPE html>
-<html lang="en">  
-  <head>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -34,27 +35,27 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('vendor/stisla/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/stisla/css/components.css') }}">
-   
+
 </head>
 
 <body>
-<div id="app">
-  <div class="main-wrapper">
-      <div class="navbar-bg"></div>
+    <div id="app">
+        <div class="main-wrapper">
+            <div class="navbar-bg"></div>
 
-      <!-- Main Content -->
-      @include('includes.navbar')
-      <div class="main-content">
-          <section class="section">
-              <div class="section-header">
-                  <h1>{{ $header ?? 'Blank Page' }}</h1>
-              </div>
+            <!-- Main Content -->
+            @include('dosen.includes.navbar')
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-header">
+                        <h1>{{ $header ?? 'Blank Page' }}</h1>
+                    </div>
 
-              <div class="section-body">
-                  @yield('content')
-              </div>
-          </section>
-      </div>
-  </div>
-</div>
+                    <div class="section-body">
+                        @yield('content')
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
 </body>

@@ -33,9 +33,9 @@ class UsersSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'id' => 3,
-            'name' => 'Aditya Najmi, M.Kom',
-            'username' => '1102110',
-            'password' => Hash::make('11111111'),
+            'name' => 'ANDI FARMADI S.Si., M.T.',
+            'username' => '0025077310',
+            'password' => Hash::make('123'),
             'role' => 'Dosen',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
