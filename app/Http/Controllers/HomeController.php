@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Mahasiswa;
 use App\Models\Dosen;
 use App\Models\Matkul;
@@ -38,13 +39,13 @@ class HomeController extends Controller
         // data dr session
         $data = $request->session()->get('mahasiswa');
         // relasikan dengan prodi dan kelas
-        $item = Mahasiswa::with(['prodis','kelas'])->findOrFail($data->id);
+        $item = Mahasiswa::with(['prodis', 'kelas'])->findOrFail($data->id);
         // ambil data fakultas, dosen, dan Tahun akademik
         $fakultas = Prodi::with('fakultas')->findOrFail($data->id_prodi);
         // dd($item->id_kelas);
-        if($item->id_kelas == null){
+        if ($item->id_kelas == null) {
             $dosen = null;
-        }else{
+        } else {
             $dosen = Kelas::with('dosen')->findOrFail($data->id_kelas);
         }
         $ta = TahunAkademik::where('status', 1)->first();
@@ -55,7 +56,8 @@ class HomeController extends Controller
             'item' => $item,
             'fakultas' => $fakultas,
             'dosen' => $dosen,
-            'ta' => $ta
+            'ta' => $ta,
+            'header' => 'Beranda',
         ]);
     }
 
@@ -110,19 +112,19 @@ class HomeController extends Controller
         $nilais = Nilai::where('id_mahasiswa', $mahasiswa->id)->where('id_ta', $ta->id)->get();
         $totalSks = 0;
         $totalBobot = 0;
-        foreach($nilais as $index=>$nilai){
+        foreach ($nilais as $index => $nilai) {
             // jumlahkan sks
             $totalSks += $nilai->schedule->matkul->sks;
             // hitung bobot
-            if($nilai->nilai_huruf == "A"){
+            if ($nilai->nilai_huruf == "A") {
                 $angka = 4;
-            }elseif($nilai->nilai_huruf == "B"){
+            } elseif ($nilai->nilai_huruf == "B") {
                 $angka = 3;
-            }elseif($nilai->nilai_huruf == "C"){
+            } elseif ($nilai->nilai_huruf == "C") {
                 $angka = 2;
-            }elseif($nilai->nilai_huruf == "D"){
+            } elseif ($nilai->nilai_huruf == "D") {
                 $angka = 1;
-            }else{
+            } else {
                 $angka = 0;
             }
             $bobot = $angka * $nilai->schedule->matkul->sks;
