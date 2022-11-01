@@ -75,6 +75,7 @@ class HomeController extends Controller
         return view('dosen.dashboard.dashboard')->with([
             'item' => $item,
             'ta' => $ta,
+            'header' => 'Beranda',
         ]);
     }
 
