@@ -19,7 +19,8 @@ class TahunAkademikController extends Controller
         $items = TahunAkademik::all();
 
         return view('pages.ta.index')->with([
-            'items' => $items
+            'items' => $items,
+            'header' => 'Tahun Akademik'
         ]);
     }
 
@@ -109,15 +110,15 @@ class TahunAkademikController extends Controller
         // reset status tahun akademik yang bernilai 1
         $item = TahunAkademik::where('status', 1)->get();
         TahunAkademik::where('id', $item[0]->id)
-        ->update([
-            'status' => 0,
-        ]);
+            ->update([
+                'status' => 0,
+            ]);
         // update status akademik menjadi 1
         $data = $request->all();
         TahunAkademik::where('id', $data['id'])
-        ->update([
-            'status' => 1,
-        ]);
-        return redirect()->route('ta.index')->with('status', 'Tahun Akademik Berhasil Dirubah!'); 
+            ->update([
+                'status' => 1,
+            ]);
+        return redirect()->route('ta.index')->with('status', 'Tahun Akademik Berhasil Dirubah!');
     }
 }

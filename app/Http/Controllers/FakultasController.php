@@ -19,7 +19,8 @@ class FakultasController extends Controller
         $items = Fakultas::all();
 
         return view('pages.fakultas.index')->with([
-            'items' => $items
+            'items' => $items,
+            'header' => 'Fakultas'
         ]);
     }
 

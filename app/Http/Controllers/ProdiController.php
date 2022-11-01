@@ -18,10 +18,11 @@ class ProdiController extends Controller
      */
     public function index()
     {
-        $items = Prodi::with(['fakultas','dosen'])->get();
-        
+        $items = Prodi::with(['fakultas', 'dosen'])->get();
+
         return view('pages.prodi.index')->with([
-            'items' => $items
+            'items' => $items,
+            'header' => 'Program studi'
         ]);
     }
 
@@ -72,7 +73,7 @@ class ProdiController extends Controller
      */
     public function edit($id)
     {
-        $item = Prodi::with(['fakultas','dosen'])->findOrFail($id);
+        $item = Prodi::with(['fakultas', 'dosen'])->findOrFail($id);
         $fakultas = Fakultas::all();
         $dosens = Dosen::all();
         return view('pages.prodi.edit')->with([

@@ -18,11 +18,12 @@ class KelasController extends Controller
      */
     public function index()
     {
-        $items = Kelas::with(['prodi','dosen'])->get();
+        $items = Kelas::with(['prodi', 'dosen'])->get();
         // $jumlahMahasiswa = count(Mahasiswa::where('id_kelas', $id)->get());
 
         return view('pages.kelas.index')->with([
             'items' => $items,
+            'header' => 'Kelas'
             // 'jumlahMahasiswa' => $jumlahMahasiswa,
         ]);
     }
@@ -64,7 +65,7 @@ class KelasController extends Controller
      */
     public function show($id)
     {
-        $item = Kelas::with(['prodi','dosen'])->findOrFail($id);
+        $item = Kelas::with(['prodi', 'dosen'])->findOrFail($id);
         $mahasiswa = Mahasiswa::where('id_kelas', $id)->get();
         $jumlahMahasiswa = count($mahasiswa);
         $idKelas = $id;
@@ -84,8 +85,8 @@ class KelasController extends Controller
      */
     public function edit($id)
     {
-        $item = Kelas::with(['prodi','dosen'])->findOrFail($id);
-    
+        $item = Kelas::with(['prodi', 'dosen'])->findOrFail($id);
+
         $prodi = Prodi::all();
         $dosenWali = Dosen::all();
 
@@ -149,15 +150,15 @@ class KelasController extends Controller
         Kelas::where('id', $request->id)
             ->update([
                 'jumlah' => $jumlahMahasiswa,
-        ]);
-
-        foreach($data['mahasiswa'] as $index=>$value){
-            Mahasiswa::where('id', $data['mahasiswa'][$index])
-            ->update([
-                'id_kelas' => $data['id'],
             ]);
+
+        foreach ($data['mahasiswa'] as $index => $value) {
+            Mahasiswa::where('id', $data['mahasiswa'][$index])
+                ->update([
+                    'id_kelas' => $data['id'],
+                ]);
         }
-        return redirect('kelas/'. $data['id'])->with('status', 'Data berhasil ditambahkan!'); 
+        return redirect('kelas/' . $data['id'])->with('status', 'Data berhasil ditambahkan!');
     }
 
     public function deleteMahasiswa(Request $request)
@@ -165,17 +166,17 @@ class KelasController extends Controller
         $data = $request->all();
 
         Mahasiswa::where('id', $data['id'])
-        ->update([
-            'id_kelas' => NULL,
-        ]);
+            ->update([
+                'id_kelas' => NULL,
+            ]);
 
-        $jumlahMahasiswa = $data['jumlahMahasiswa']-1;
+        $jumlahMahasiswa = $data['jumlahMahasiswa'] - 1;
 
         Kelas::where('id', $data['idKelas'])
             ->update([
                 'jumlah' => $jumlahMahasiswa,
-        ]);
+            ]);
 
-        return redirect('kelas/'. $data['idKelas'])->with('status', 'Data mahasiswa berhasil di hapus!'); 
+        return redirect('kelas/' . $data['idKelas'])->with('status', 'Data mahasiswa berhasil di hapus!');
     }
 }

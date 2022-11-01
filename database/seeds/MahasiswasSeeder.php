@@ -30,5 +30,22 @@ class MahasiswasSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
+        DB::table('mahasiswas')->insert([
+            'id' => 2,
+            'nim' => 1911016310021,
+            'nama' => 'Akbar Wahyudi Putra',
+            'tempat_lahir' => 'Barabai',
+            'tanggal_lahir' => date('Y-m-d'),
+            'alamat' => 'TPO',
+            'id_prodi' => 1,
+            'id_kelas' => 1,
+            'agama' => 'Islam',
+            'telp' => '082254067751',
+            'email' => 'Ahmed14@gmail.com',
+            'jenis_kelamin' => 'L',
+            'photo' => "",
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
     }
 }

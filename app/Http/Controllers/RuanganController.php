@@ -20,7 +20,8 @@ class RuanganController extends Controller
         $items = Ruangan::with('gedung')->get();
 
         return view('pages.ruangan.index')->with([
-            'items' => $items
+            'items' => $items,
+            'header' => 'Ruangan'
         ]);
     }
 
@@ -70,7 +71,7 @@ class RuanganController extends Controller
     public function edit($id)
     {
         $item = Ruangan::with('gedung')->findOrFail($id);
-    
+
         $gedungs = Gedung::all();
         return view('pages.ruangan.edit')->with([
             'item' => $item,

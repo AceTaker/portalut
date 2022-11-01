@@ -19,7 +19,8 @@ class GedungController extends Controller
         $items = Gedung::all();
 
         return view('pages.gedung.index')->with([
-            'items' => $items
+            'items' => $items,
+            'header' => 'Gedung'
         ]);
     }
 

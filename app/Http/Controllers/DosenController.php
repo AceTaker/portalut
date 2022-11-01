@@ -22,7 +22,8 @@ class DosenController extends Controller
         $items = Dosen::with('fakultas')->get();
 
         return view('pages.dosen.index')->with([
-            'items' => $items
+            'items' => $items,
+            'header' => 'Dosen'
         ]);
     }
 
@@ -48,8 +49,8 @@ class DosenController extends Controller
     public function store(DosenRequest $request)
     {
         $data = $request->all();
-        
-        $photoName = $data['photo']->getClientOriginalName() . '-' . time(). '.' . $data['photo']->extension();
+
+        $photoName = $data['photo']->getClientOriginalName() . '-' . time() . '.' . $data['photo']->extension();
         $data['photo']->move(public_path('image/dosen'), $photoName);
 
         Dosen::create([
@@ -100,7 +101,7 @@ class DosenController extends Controller
     public function edit($id)
     {
         $item = Dosen::with('fakultas')->findOrFail($id);
-    
+
         $fakultas = Fakultas::all();
         return view('pages.dosen.edit')->with([
             'item' => $item,
@@ -122,45 +123,44 @@ class DosenController extends Controller
         $item = Dosen::findOrFail($id);
         $user = User::where('username', $item->nidn)->first();
 
-        if($request->photo == ""){
+        if ($request->photo == "") {
             $photoName = $item->photo;
-        }else{
-            $photoName = $data['photo']->getClientOriginalName() . '-' . time(). '.' . $data['photo']->extension();
+        } else {
+            $photoName = $data['photo']->getClientOriginalName() . '-' . time() . '.' . $data['photo']->extension();
             $data['photo']->move(public_path('image/dosen'), $photoName);
-            if($item->photo == NULL){
-
-            }else{
-                unlink(public_path('image')."/dosen/".$item->photo);
+            if ($item->photo == NULL) {
+            } else {
+                unlink(public_path('image') . "/dosen/" . $item->photo);
             }
         }
 
         Dosen::where('id', $item->id)
-        ->update([
-            'nidn' => $data['nidn'],
-            'nama' => $data['nama'],
-            'tempat_lahir' => $data['tempat_lahir'],
-            'tanggal_lahir' => $data['tanggal_lahir'],
-            'alamat' => $data['alamat'],
-            'agama' => $data['agama'],
-            'telp' => $data['telp'],
-            'email' => $data['email'],
-            'id_fakultas' => $data['id_fakultas'],
-            'jenis_kelamin' => $data['jenis_kelamin'],
-            'photo' => $photoName,
-        ]);
+            ->update([
+                'nidn' => $data['nidn'],
+                'nama' => $data['nama'],
+                'tempat_lahir' => $data['tempat_lahir'],
+                'tanggal_lahir' => $data['tanggal_lahir'],
+                'alamat' => $data['alamat'],
+                'agama' => $data['agama'],
+                'telp' => $data['telp'],
+                'email' => $data['email'],
+                'id_fakultas' => $data['id_fakultas'],
+                'jenis_kelamin' => $data['jenis_kelamin'],
+                'photo' => $photoName,
+            ]);
 
-        if($request->password == ""){
+        if ($request->password == "") {
             $password = $user->password;
-        }else{
+        } else {
             $password = Hash::make($data['password']);
         }
-        
+
         User::where('id', $user->id)
-        ->update([
-            'name' => $data['nama'],
-            'username' => $data['nidn'],
-            'password' => $password,
-        ]);
+            ->update([
+                'name' => $data['nama'],
+                'username' => $data['nidn'],
+                'password' => $password,
+            ]);
 
         return redirect()->route('dosen.index')->with('status', 'Data berhasil diubah!');
     }

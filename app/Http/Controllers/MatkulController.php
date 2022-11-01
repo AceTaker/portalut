@@ -20,7 +20,8 @@ class MatkulController extends Controller
         $items = Matkul::with('prodi')->get();
 
         return view('pages.matkul.index')->with([
-            'items' => $items
+            'items' => $items,
+            'header' => 'Mata Kuliah'
         ]);
     }
 
@@ -47,9 +48,9 @@ class MatkulController extends Controller
     {
         $data = $request->all();
 
-        if($data['smt'] % 2 == 0){
+        if ($data['smt'] % 2 == 0) {
             $data['semester'] = "Genap";
-        }else{
+        } else {
             $data['semester'] = "Ganjil";
         }
 
@@ -65,7 +66,6 @@ class MatkulController extends Controller
      */
     public function show($id)
     {
-        
     }
 
     /**
@@ -77,7 +77,7 @@ class MatkulController extends Controller
     public function edit($id)
     {
         $item = Matkul::with('prodi')->findOrFail($id);
-    
+
         $prodi = Prodi::all();
 
         return view('pages.matkul.edit')->with([
